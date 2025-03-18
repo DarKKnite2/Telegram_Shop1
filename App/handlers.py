@@ -9,12 +9,12 @@ from aiocryptopay import AioCryptoPay, Networks
 
 
 router = Router()
-crypto = AioCryptoPay(token=os.getenv('CRYPTO_TOKEN'), network=Networks.MAIN_NET)
+#crypto = AioCryptoPay(token=os.getenv('CRYPTO_TOKEN'), network=Networks.MAIN_NET)
 
-@router.message(Command('pay'))
-async def process_payment_command(message: Message):
-    invoice = await  crypto.create_invoice(amount=1.0, asset='USDT')
-    await message.answer(f'Ссылка на оплату: {invoice.pay_url}')
+#@router.message(Command('pay'))
+#async def process_payment_command(message: Message):
+#    invoice = await  crypto.create_invoice(amount=1.0, asset='USDT')
+#    await message.answer(f'Ссылка на оплату: {invoice.pay_url}')
 
 
 
@@ -27,19 +27,19 @@ async def cmd_start(message: Message):
     )
 
 
-@router.message(Command('balance'))
-async def balance(message: Message):
-    amount = 1.5  # пример суммы
-    invoice = await crypto.create_invoice(asset='TON', amount=amount)
-    await message.answer(f'Счет создан: {invoice.bot_invoice_url}')
+#@router.message(Command('balance'))
+#async def balance(message: Message):
+#    amount = 1.5  # пример суммы
+#    invoice = await crypto.create_invoice(asset='TON', amount=amount)
+#    await message.answer(f'Счет создан: {invoice.bot_invoice_url}')
 
 
 # Новый обработчик для пополнения баланса
-@router.message(Command('deposit'))
-async def deposit(message: Message):
-    amount = 1.5  # пример суммы для пополнения
-    invoice = await crypto.create_invoice(asset='TON', amount=amount)
-    await message.answer(f'Используйте этот счет для пополнения баланса: {invoice.bot_invoice_url}')
+#@router.message(Command('deposit'))
+#async def deposit(message: Message):
+#    amount = 1.5  # пример суммы для пополнения
+#    invoice = await crypto.create_invoice(asset='TON', amount=amount)
+#    await message.answer(f'Используйте этот счет для пополнения баланса: {invoice.bot_invoice_url}')
 
 
 

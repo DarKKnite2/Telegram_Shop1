@@ -10,7 +10,7 @@ load_dotenv()
 
 bot = Bot(token=os.getenv('BOT_TOKEN'))
 dp = Dispatcher()
-crypto = AioCryptoPay(token=os.getenv('CRYPTO_TOKEN'), network=Networks.MAIN_NET)
+#crypto = AioCryptoPay(token=os.getenv('CRYPTO_TOKEN'), network=Networks.MAIN_NET)
 
 async def main():
     dp.include_router(router)
